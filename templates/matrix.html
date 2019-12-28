@@ -1,0 +1,37 @@
+<table class="table">
+    <thead>
+        <tbody>
+            <th></th>
+            <th></th>
+            <th></th>
+        {% for string in s2 %}
+            <th>{{ string }}</th>
+        {% endfor %}
+        </tbody>
+        <tbody>
+            <tr>
+                <th></th>
+                <th></th>
+                <th><b>0</b></th>
+            {% for string in s2 %}
+                <th>{{ matrix[0][loop.index][0] }}</th>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </thead>
+        {% for row in matrix %}
+            <tr>
+                {% if loop.index0 == 0 %}
+                    <td><b>{{ loop.index0 }}</b></td>
+                {% else %}
+                    <!-- omdat we loopen door de matrix, hebben we 1 waarde teveel (de nul/none) -->
+                    {% set char_index = loop.index0 - 1 %}
+                    <td><b>{{ s1[char_index] }} {{ loop.index0 }}</b></td>
+                {% endif %}
+            <td></td>
+            {% for col in row %}
+                <td>{{ col[0] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+</table>
