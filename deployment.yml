@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: similarities-python
-        image: similarities-python:latest
+        image: myregistry.com:5000/similarities-python:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
